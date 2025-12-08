@@ -1,53 +1,84 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Google Fonts: Cinzel Decorative -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Cinzel Decorative -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Ultimate Werewolf Night</title>
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Ultimate Werewolf Night</title>
 </head>
 <body>
 <div class="macbook-air">
-    <h1 class="ultimate-werewolf">Ultimate<br>Werewolf Night</h1>
-    <p class="subtitle">En aften med mysterium, strategi og brætspilshygge</p>
+  <h1 class="ultimate-werewolf">Ultimate<br>Werewolf Night</h1>
+  <p class="subtitle">En aften med mysterium, strategi og brætspilshygge</p>
 
-    <!-- Hovedbillede -->
-    <img class="main-image" src="img/braetspil-foto.png" alt="Brætspil foto" />
+  <!-- Hovedbillede -->
+  <img class="main-image" src="img/braetspil-foto.png" alt="Brætspil foto" />
 
-    <!-- Tilmeld knap under hovedbillede -->
-    <div class="cta-button">Tilmeld dig nu</div>
+  <!-- Tilmeld knap under hovedbillede -->
+  <div class="cta-button" id="openForm">Tilmeld dig nu</div>
 
-    <!-- Grid med tre bokse -->
-    <div class="boks-grid">
-        <div>
-            <h2>Tid og sted</h2>
-            <p>Fredag d. 12 dec. 2025 kl. 16-18<br>Munkebro 1, 4000 Roskilde</p>
-        </div>
-        <div>
-            <h2>Hvem kan deltage?</h2>
-            <p>Studerende<br>Max 20 deltagere</p>
-        </div>
-        <div>
-            <h2>Pris</h2>
-            <p>50 kr</p>
-        </div>
+  <!-- Grid med tre bokse -->
+  <div class="boks-grid">
+    <div>
+      <h2>Tid og sted</h2>
+      <p>Fredag d. 12 dec. 2025 kl. 16-18<br>Munkebro 1, 4000 Roskilde</p>
     </div>
-
-    <!-- Nederste boks -->
-    <div class="bottom-box">
-        <p class="bottom-title"><strong>Er du klar til en hyggelig aften?</strong></p>
-        <p class="bottom-text">
-            På Werewolf Night får du en aften fyldt med spænding, samarbejde og socialt samvær.
-            Du vil opleve strategisk tænkning, små overraskelser undervejs og hyggeligt samvær med andre brætspilsentusiaster.
-        </p>
+    <div>
+      <h2>Hvem kan deltage?</h2>
+      <p>Studerende<br>Max 20 deltagere</p>
     </div>
+    <div>
+      <h2>Pris</h2>
+      <p>50 kr</p>
+    </div>
+  </div>
+
+  <!-- Nederste boks -->
+  <div class="bottom-box">
+    <p class="bottom-title"><strong>Er du klar til en hyggelig aften?</strong></p>
+    <p class="bottom-text">
+      På Werewolf Night får du en aften fyldt med spænding, samarbejde og socialt samvær.
+      Du vil opleve strategisk tænkning, små overraskelser undervejs og hyggeligt samvær med andre brætspilsentusiaster.
+    </p>
+  </div>
 </div>
+
+<!-- Modal Formular -->
+<div id="modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 class="modal-title">Tilmeld dig Werewolf Night</h2>
+    <p class="modal-text">
+      Indtast dine oplysninger, så modtager du straks en bekræftelse og er klar til en hyggelig aften.
+    </p>
+    <form action="send.php" method="post">
+      <input type="text" name="navn" placeholder="Navn" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <button type="submit">Tilmeld</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  // Modal JS
+  const modal = document.getElementById("modal");
+  const overlay = document.querySelector(".modal-overlay");
+  const openBtn = document.getElementById("openForm");
+  const closeBtn = document.querySelector(".close");
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  overlay.onclick = () => modal.style.display = "none";
+</script>
 </body>
 </html>
