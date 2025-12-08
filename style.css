@@ -1,0 +1,121 @@
+/* Container med baggrund */
+.macbook-air {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    /* Baggrundsbillede */
+    background-image: url('img/werewolf-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Titel */
+.ultimate-werewolf {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #f7d9b0;
+    text-shadow: 0px 4px 4px #3a2154;
+    line-height: 1.2;
+    margin-top: 50px;
+}
+
+/* Undertekst */
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #f7d9b0;
+    margin: 20px 0;
+}
+
+/* Hovedbillede */
+.main-image {
+    max-width: 100%;
+    height: auto;
+    margin: 30px 0;
+    border-radius: 15px;
+}
+
+/* Tilmeld knap */
+.cta-button {
+    background: linear-gradient(0deg, rgba(146,94,41,0.8) 2%, rgba(53,20,0,0.8) 93%);
+    border-radius: 15px;
+    padding: 20px 40px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 40px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Grid med tre bokse */
+.boks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .boks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.boks-grid > div {
+    background: linear-gradient(180deg, rgba(37,14,0,0.8) 0%, rgba(93,37,0,0.8) 100%);
+    border: 9px solid #3d1801;
+    border-radius: 15px;
+    padding: 30px;
+    color: #f7d9b0;
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 250px;
+}
+
+/* Grid overskrifter */
+.boks-grid h2 {
+    font-weight: 900;
+    font-size: 1.4rem;
+    margin-bottom: 10px; /* afstand til teksten under */
+}
+
+/* Nederste boks */
+.bottom-box {
+    background: linear-gradient(180deg, rgba(93,37,0,0.8) 0%, rgba(37,14,0,0.8) 100%);
+    border: 9px solid #3c1801;
+    border-radius: 15px;
+    padding: 30px;
+    color: #f7d9b0;
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* Nederste boks overskrift */
+.bottom-title {
+    font-weight: 900;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+/* Nederste boks tekst */
+.bottom-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
