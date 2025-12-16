@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Menukort - Ultimate Werewolf Night</title>
+
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">Ultimate Werewolf Night</a>
+
+        <!-- Burger icon -->
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Links -->
+        <div class="nav-links">
+            <a href="index.html">Hjem</a>
+            <a href="dagens-plan.html">Dagens plan</a>
+            <a href="menu.html">Menukort</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="#" class="openForm">Tilmeld</a>
+        </div>
+    </div>
+</nav>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Tilmeld dig Werewolf Night</h2>
+        <p class="modal-text">
+            Indtast dine oplysninger, så modtager du straks en bekræftelse og er klar til en hyggelig aften.
+        </p>
+        <form>
+            <input type="text" placeholder="Navn" required>
+            <input type="email" placeholder="E-mail" required>
+            <button type="submit">Tilmeld</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("modal");
+    const openBtns = document.querySelectorAll(".openForm");
+    const closeBtn = document.querySelector(".close");
+    const overlay = document.querySelector(".modal-overlay");
+
+    if (modal) {
+        openBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                modal.style.display = "block";
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        overlay.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
+</script>
+
+<script>
+    const burger = document.querySelector(".burger");
+    const navLinks = document.querySelector(".nav-links");
+
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        burger.classList.toggle("toggle");
+    });
+</script>
+</body>
+</html>

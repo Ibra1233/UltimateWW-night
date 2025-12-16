@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="globals.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Menukort - Ultimate Werewolf Night</title>
+
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">Ultimate Werewolf Night</a>
+
+    <!-- Burger icon -->
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Links -->
+    <div class="nav-links">
+      <a href="index.html">Hjem</a>
+      <a href="dagens-plan.html">Dagens plan</a>
+      <a href="menu.html">Menukort</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="#" class="openForm">Tilmeld</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MENU -->
+<div class="menu-desktop">
+  <div class="menu-columns">
+
+    <!-- Venstre kolonne: Snacks -->
+    <div class="menu-left">
+      <div class="menu-section">
+        <h2>Snacks</h2>
+        <div class="menu-item">
+          <span class="name">Blodmåne-chips</span>
+          <span class="description">(Nacho-chips med salsa)</span>
+          <span class="price">30 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Seerens krystalkugler</span>
+          <span class="description">(Ostekugler)</span>
+          <span class="price">35 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Vareulvens fodaftryk</span>
+          <span class="description">(Småkager formet som ulvepoter)</span>
+          <span class="price">25 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Landsbyens nattetapas</span>
+          <span class="description">(Tapasbidder med ost og oliven)</span>
+          <span class="price">50 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Midnatsmåner</span>
+          <span class="description">(Måneformet cupcakes)</span>
+          <span class="price">40 kr</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Højre kolonne: Kolde og varme drikke -->
+    <div class="menu-right">
+      <div class="menu-section">
+        <h2>Kolde drikke</h2>
+        <div class="menu-item">
+          <span class="name">Sort månedskin</span>
+          <span class="description">(Cola)</span>
+          <span class="price">25 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Blodmåne-eliksir</span>
+          <span class="description">(Hindbær brus)</span>
+          <span class="price">25 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Heksebryg</span>
+          <span class="description">(Punchbowle med sprite, appelsin og frosne bær)</span>
+          <span class="price">50 kr</span>
+        </div>
+      </div>
+
+      <div class="menu-section">
+        <h2>Varme drikke</h2>
+        <div class="menu-item">
+          <span class="name">Vareulvens varme</span>
+          <span class="description">(Varm kakao)</span>
+          <span class="price">25 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Skovens nattetee</span>
+          <span class="description">(Te med skovbærblanding)</span>
+          <span class="price">25 kr</span>
+        </div>
+        <div class="menu-item">
+          <span class="name">Nattevagt-kaffe</span>
+          <span class="description">(Kaffe - sort eller med mælk)</span>
+          <span class="price">30 kr</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Tilmeld dig Werewolf Night</h2>
+    <p class="modal-text">
+      Indtast dine oplysninger, så modtager du straks en bekræftelse og er klar til en hyggelig aften.
+    </p>
+    <form>
+      <input type="text" placeholder="Navn" required>
+      <input type="email" placeholder="E-mail" required>
+      <button type="submit">Tilmeld</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const openBtns = document.querySelectorAll(".openForm");
+  const closeBtn = document.querySelector(".close");
+  const overlay = document.querySelector(".modal-overlay");
+
+  if (modal) {
+    openBtns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    overlay.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+</script>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const navLinks = document.querySelector(".nav-links");
+
+  burger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    burger.classList.toggle("toggle");
+  });
+</script>
+
+</body>
+</html>

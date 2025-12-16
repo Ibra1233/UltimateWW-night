@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="globals.css" />
   <link rel="stylesheet" href="style.css" />
-  <title>Ultimate Werewolf Night</title>
+  <title>Kontakt - Ultimate Werewolf Night</title>
 </head>
 
 <body>
@@ -39,38 +39,12 @@
   </div>
 </nav>
 
-
-<!-- FORSIDE -->
-<div class="macbook-air">
-
-  <h1 class="ultimate-werewolf">Ultimate<br>Werewolf Night</h1>
-  <p class="subtitle">En aften med mysterium, strategi og brætspilshygge</p>
-
-  <img class="main-image" src="img/braetspil-foto.png" alt="Brætspil foto" />
-
-  <div class="cta-button openForm">Tilmeld dig nu</div>
-
-  <div class="boks-grid">
-    <div>
-      <h2>Tid og sted</h2>
-      <p>Fredag d. 12 dec. 2025 kl. 16-18<br>Munkebro 1, 4000 Roskilde</p>
-    </div>
-    <div>
-      <h2>Hvem kan deltage?</h2>
-      <p>Studerende<br>Max 20 deltagere</p>
-    </div>
-    <div>
-      <h2>Pris</h2>
-      <p>50 kr</p>
-    </div>
-  </div>
-
-  <div class="bottom-box">
-    <p><strong>Er du klar til en hyggelig aften?</strong></p>
-    <p>
-      På Werewolf Night får du en aften fyldt med spænding, samarbejde og socialt samvær.
-    </p>
-  </div>
+<!-- KONTAKT CONTENT -->
+<div class="contact-container">
+  <h1>Kontakt</h1>
+  <p>Har du nogle spørgsmål til eventet? Tøv ikke med at kontakte os på:</p>
+  <p>Telefon: <span class="highlight">+45 1234 5678</span></p>
+  <p>Email: <span class="highlight">abcd@gmail.com</span></p>
 </div>
 
 <!-- MODAL -->
@@ -90,28 +64,29 @@
   </div>
 </div>
 
-
-<!-- SCRIPT -->
+<!-- MODAL SCRIPT -->
 <script>
   const modal = document.getElementById("modal");
   const openBtns = document.querySelectorAll(".openForm");
   const closeBtn = document.querySelector(".close");
   const overlay = document.querySelector(".modal-overlay");
 
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modal.style.display = "block";
+  if (modal) {
+    openBtns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "block";
+      });
     });
-  });
 
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-  overlay.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+    overlay.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
 </script>
 
 <script>
@@ -123,7 +98,6 @@
     burger.classList.toggle("toggle");
   });
 </script>
-
 
 </body>
 </html>
