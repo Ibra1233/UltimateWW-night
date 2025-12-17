@@ -27,7 +27,7 @@ html, body {
     /* Baggrundsbillede */
     background-image: url('img/werewolf-1.png');
     background-size: cover;
-    background-position: center;
+    background-position: center 65%;
     background-repeat: no-repeat;
 }
 

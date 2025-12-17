@@ -65,80 +65,116 @@ a {
 
 .subtitle {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 25px;
     font-weight: 700;
     color: #f7d9b0;
     margin: 20px 0;
 }
 
+
 .main-image {
-    max-width: 100%;
+    width: 80%;
+    max-width: 600px;
     height: auto;
-    margin: 30px 0;
-    border-radius: 15px;
 }
+
+
+
+
+
 
 .cta-button {
-    background: linear-gradient(0deg, rgba(146,94,41,0.8) 2%, rgba(53,20,0,0.8) 93%);
-    border-radius: 15px;
-    padding: 20px 40px;
+    background: linear-gradient(
+            180deg,
+            rgba(180,120,60,0.95) 0%,
+            rgba(90,35,0,0.95) 100%
+    );
+    border: 7px solid #954113;
+
+    border-radius: 18px;
+    padding: 26px 60px;
+
     color: #fff;
     font-weight: 900;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+
     text-align: center;
-    margin-bottom: 40px;
+
     cursor: pointer;
     display: inline-block;
+
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.45),
+            inset 0 1px 0 rgba(255,255,255,0.25);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 60px;
 }
 
-/* ===== BOKS GRID ===== */
+
 .boks-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     max-width: 1200px;
-    margin-bottom: 40px;
+    margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .boks-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 
+
+
 .boks-grid > div {
-    background: linear-gradient(180deg, rgba(37,14,0,0.8) 0%, rgba(93,37,0,0.8) 100%);
+    background: linear-gradient(180deg, rgba(37,14, 0, 0.8) 0%, rgba(93, 37, 0, 0.8) 100%);
+    border: 9px solid #3d1801;
+    border-radius: 15px;
+    padding: 0;
+    color: #f7d9b0;
+    text-align: center;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 80px;
+    margin-top: 100px;
+}
+
+
+
+.boks-grid h2 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* ===== BUND BOX ===== */
+.bottom-box {
+    background: linear-gradient(180deg, rgba(37,14, 0, 0.8) 0%, rgba(93, 37, 0, 0.8) 100%);
     border: 9px solid #3d1801;
     border-radius: 15px;
     padding: 30px;
     color: #f7d9b0;
     text-align: center;
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 250px;
-}
-
-.boks-grid h2 {
-    font-weight: 900;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-/* ===== BUND BOX ===== */
-.bottom-box {
-    background: linear-gradient(180deg, rgba(93,37,0,0.8) 0%, rgba(37,14,0,0.8) 100%);
-    border: 9px solid #3c1801;
-    border-radius: 15px;
-    padding: 30px;
-    color: #f7d9b0;
-    text-align: center;
     max-width: 1200px;
     width: 100%;
     margin-bottom: 40px;
+    font-size: 30px;
+    margin-top: 100px;
 }
+
+.info-tekst {font-size: 30px;}
+
+.overskrift-bund {
+    font-size: 40px;
+font-weight: bold;
+margin-bottom: 20px;}
 
 .bottom-title {
     font-weight: 900;
@@ -176,7 +212,6 @@ a {
     max-width: 400px;
     z-index: 1001;
     text-align: center;
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif; /* ens font på alle sider */
 }
 
 .modal-content h2 {
@@ -189,7 +224,6 @@ a {
 }
 
 .modal-text {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5;
@@ -320,7 +354,7 @@ body {
 }
 
 .contact-container p {
-    font-size: 1.2rem;
+    font-size: 25px;
     line-height: 1.6;
     margin: 10px 0;
 }
@@ -441,3 +475,65 @@ body {
     }
 }
 
+.day-plan {
+    background-color: #331200;
+    color: #f7d9b0;
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+}
+
+/* Overskrift */
+.day-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Ornament / linje */
+.ornament {
+    width: 300px;
+    height: 2px;
+    background-color: #f7d9b0;
+    margin: 0 auto 60px;
+    opacity: 0.7;
+}
+
+/* Timeline container */
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Hver række */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Tids-cirkel */
+.time-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #8b4a00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+/* Tekst */
+.time-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 30px;
+        line-height: 1.7;
+    font-weight: bold;
+    }
