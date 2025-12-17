@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="globals.css">
+
     <link rel="stylesheet" href="style.css">
 
     <title>Menukort - Ultimate Werewolf Night</title>
@@ -35,7 +35,6 @@
 
         <!-- Links -->
         <div class="nav-links">
-            <a href="index.html">Hjem</a>
             <a href="dagens-plan.html">Dagens plan</a>
             <a href="menu.html">Menukort</a>
             <a href="kontakt.html">Kontakt</a>
@@ -95,38 +94,6 @@
     </div>
 </div>
 
-<script>
-    const modal = document.getElementById("modal");
-    const openBtns = document.querySelectorAll(".openForm");
-    const closeBtn = document.querySelector(".close");
-    const overlay = document.querySelector(".modal-overlay");
-
-    if (modal) {
-        openBtns.forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.preventDefault();
-                modal.style.display = "block";
-            });
-        });
-
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        overlay.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    }
-</script>
-
-<script>
-    const burger = document.querySelector(".burger");
-    const navLinks = document.querySelector(".nav-links");
-
-    burger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        burger.classList.toggle("toggle");
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>

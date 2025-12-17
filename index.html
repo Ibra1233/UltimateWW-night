@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="globals.css" />
+
   <link rel="stylesheet" href="style.css" />
   <title>Ultimate Werewolf Night</title>
 </head>
@@ -30,7 +30,6 @@
 
     <!-- Links -->
     <div class="nav-links">
-      <a href="index.html">Hjem</a>
       <a href="dagens-plan.html">Dagens plan</a>
       <a href="menu.html">Menukort</a>
       <a href="kontakt.html">Kontakt</a>
@@ -41,9 +40,9 @@
 
 
 <!-- FORSIDE -->
-<div class="macbook-air">
+<div class="container-med-baggrund">
 
-  <h1 class="ultimate-werewolf">Ultimate<br>Werewolf Night</h1>
+  <h1 class="ultimate-werewolf">Ultimate Werewolf Night</h1>
   <p class="subtitle">En aften med mysterium, strategi og brætspilshygge</p>
 
   <img class="main-image" src="img/braetspil-foto.png" alt="Brætspil foto" />
@@ -91,39 +90,6 @@
 </div>
 
 
-<!-- SCRIPT -->
-<script>
-  const modal = document.getElementById("modal");
-  const openBtns = document.querySelectorAll(".openForm");
-  const closeBtn = document.querySelector(".close");
-  const overlay = document.querySelector(".modal-overlay");
-
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modal.style.display = "block";
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  overlay.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-</script>
-
-<script>
-  const burger = document.querySelector(".burger");
-  const navLinks = document.querySelector(".nav-links");
-
-  burger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    burger.classList.toggle("toggle");
-  });
-</script>
-
-
+<script src="script.js"></script>
 </body>
 </html>

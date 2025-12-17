@@ -1,4 +1,6 @@
-/* ===== RESET & GENERELLE STYLES ===== */
+/* =====================================================
+   RESET & BASIS (UÆNDRET)
+===================================================== */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
 * {
@@ -9,15 +11,12 @@
 }
 
 html, body {
-    height: 100%;
     width: 100%;
+    min-height: 100%;
     font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-    background-color: #331200; /* Standard baggrund for kontakt/index */
+    background-color: #331200;
     color: #f7d9b0;
-}
-
-button:focus-visible {
-    outline: 2px solid #4a90e2 !important;
+    overflow-x: hidden;
 }
 
 a {
@@ -25,100 +24,223 @@ a {
     color: inherit;
 }
 
-/* ===== NAVBAR ===== */
+button:focus-visible {
+    outline: 2px solid #4a90e2;
+}
+
+/* =====================================================
+   CONTAINER MED BAGGRUND
+===================================================== */
+.container-med-baggrund {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 140px 20px 40px;
+    background-image: url('img/werewolf-1.png');
+    background-size: cover;
+    background-position: center 65%;
+    background-repeat: no-repeat;
+}
+
+/* ==============================
+   NAVBAR – KORREKT BALANCERET
+============================== */
+
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 60px;
-    background-color: rgba(24, 10, 0, 0.85);
+    background-color: rgba(24,10,0,0.85);
+    z-index: 1000;
+
+    padding: 10px 0;              /* lavere top/bund */
+}
+
+/* Container */
+.nav-container {
+    max-width: 1400px;            /* FORHINDRER at højre side forsvinder */
+    margin: 0 auto;
+    padding: 0 40px;
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 40px;
-    z-index: 1000;
 }
 
-.navbar a {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
+/* LOGO – VENSTRE */
+.logo {
+    font-size: 1.4rem;            /* mindre logo */
     font-weight: 900;
-    font-size: 16px;
     letter-spacing: 1.5px;
-    color: #f7d9b0;
+    white-space: nowrap;
+
+    text-decoration: none;
+    flex-shrink: 0;               /* må IKKE presse menu */
 }
 
-.navbar a:hover {
+/* Hover på logo */
+.logo:hover {
     text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
-/* ===== FORSIDE ===== */
+/* MENU – HØJRE */
+.nav-links {
+    margin-left: auto;            /* SKUBBER MENUEN HELT TIL HØJRE */
+    display: flex;
+    align-items: center;
+    gap: 48px;                    /* pæn afstand */
+}
+
+.nav-links a {
+    font-size: 1.15rem;           /* lidt større, men stabil */
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+
+    text-decoration: none;
+}
+
+/* Hover */
+.nav-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/* BURGER */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 26px;
+    height: 3px;
+    background-color: #f7d9b0;
+    border-radius: 2px;
+}
+
+/* ==============================
+   MOBIL
+============================== */
+@media (max-width: 768px) {
+
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    /* Logo HELT venstre */
+    .logo {
+        font-size: 1.2rem;
+        margin-right: auto;
+    }
+
+    /* Burger HELT højre */
+    .burger {
+        display: flex;
+        margin-left: auto;
+    }
+
+    /* Dropdown */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background-color: rgba(24,10,0,0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        padding: 22px 0;
+
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
+
+
+/* =====================================================
+   FORSIDE
+===================================================== */
 .ultimate-werewolf {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
-    color: #f7d9b0;
-    text-shadow: 0px 4px 4px #3a2154;
     line-height: 1.2;
-    margin-top: 50px;
 }
 
 .subtitle {
     text-align: center;
     font-size: 25px;
     font-weight: 700;
-    color: #f7d9b0;
     margin: 20px 0;
 }
-
 
 .main-image {
     width: 80%;
     max-width: 600px;
-    height: auto;
+    margin: 40px auto;
+    display: block;
 }
 
-
-
-
-
-
+/* CTA */
 .cta-button {
+    margin-top: 60px;
+    padding: 26px 60px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    border-radius: 18px;
+    border: 7px solid #954113;
     background: linear-gradient(
             180deg,
-            rgba(180,120,60,0.95) 0%,
-            rgba(90,35,0,0.95) 100%
+            rgba(180,120,60,0.95),
+            rgba(90,35,0,0.95)
     );
-    border: 7px solid #954113;
-
-    border-radius: 18px;
-    padding: 26px 60px;
-
-    color: #fff;
-    font-weight: 900;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-
-    text-align: center;
-
     cursor: pointer;
     display: inline-block;
-
-    box-shadow:
-            0 10px 25px rgba(0,0,0,0.45),
-            inset 0 1px 0 rgba(255,255,255,0.25);
-
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-top: 60px;
+    text-align: center;
 }
 
-
+/* INFO BOKSE */
 .boks-grid {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
+}
+
+.boks-grid > div {
+    background: linear-gradient(
+            180deg,
+            rgba(37,14,0,0.8),
+            rgba(93,37,0,0.8)
+    );
+    border: 9px solid #3d1801;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+.boks-grid h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.info-tekst {
+    font-size: 30px;
 }
 
 @media (max-width: 768px) {
@@ -128,370 +250,42 @@ a {
     }
 }
 
-
-
-.boks-grid > div {
-    background: linear-gradient(180deg, rgba(37,14, 0, 0.8) 0%, rgba(93, 37, 0, 0.8) 100%);
-    border: 9px solid #3d1801;
-    border-radius: 15px;
-    padding: 0;
-    color: #f7d9b0;
-    text-align: center;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 80px;
-    margin-top: 100px;
-}
-
-
-
-.boks-grid h2 {
-    font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 40px;
-    margin-top: 0;
-}
-
-/* ===== BUND BOX ===== */
+/* BUND BOKS */
 .bottom-box {
-    background: linear-gradient(180deg, rgba(37,14, 0, 0.8) 0%, rgba(93, 37, 0, 0.8) 100%);
+    max-width: 1200px;
+    margin: 100px auto 40px;
+    padding: 30px;
+    background: linear-gradient(
+            180deg,
+            rgba(37,14,0,0.8),
+            rgba(93,37,0,0.8)
+    );
     border: 9px solid #3d1801;
     border-radius: 15px;
-    padding: 30px;
-    color: #f7d9b0;
     text-align: center;
-    max-width: 1200px;
-    width: 100%;
-    margin-bottom: 40px;
     font-size: 30px;
-    margin-top: 100px;
 }
-
-.info-tekst {font-size: 30px;}
 
 .overskrift-bund {
     font-size: 40px;
-font-weight: bold;
-margin-bottom: 20px;}
-
-.bottom-title {
-    font-weight: 900;
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-}
-
-.bottom-text {
-    font-size: 1.3rem;
-    line-height: 1.6;
-}
-
-/* ===== MODAL ===== */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1000;
-}
-
-.modal-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-    position: relative;
-    background-color: rgba(255,255,255,0.95);
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 400px;
-    z-index: 1001;
-    text-align: center;
-}
-
-.modal-content h2 {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: rgb(53, 20, 0);
-    text-align: center;
-}
-
-.modal-text {
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: center;
-    color: rgb(76, 48, 18);
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
     font-weight: bold;
-    cursor: pointer;
-}
-
-.modal-content input {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.modal-content button {
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: linear-gradient(0deg, rgba(146,94,41,0.8) 2%, rgba(53,20,0,0.8) 93%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* ===== MENU SIDE ===== */
-.menu-desktop {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #301100;
-    padding: 120px 20px 60px;
-    display: flex;
-    justify-content: center;
-    color: #f7d9b0;
-}
-
-.menu-columns {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    max-width: 1200px;
-    width: 100%;
-}
-
-@media (min-width: 992px) {
-    .menu-columns {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-.menu-left, .menu-right {
-    flex: 1;
-}
-
-/* Sektion overskrift */
-.menu-desktop h2 {
-    font-size: 2rem;
-    font-weight: 900;
-    border-bottom: 2px solid #f7d9b0;
-    padding-bottom: 10px;
     margin-bottom: 20px;
-    text-align: center;
-    text-shadow: 0px 2px 4px #3a2154;
 }
 
-/* Menu items */
-.menu-item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.menu-item .name {
-    font-weight: 900;
-}
-
-.menu-item .description {
-    font-style: italic;
-    color: #e1c5a2;
-    margin-left: 0;
-}
-
-@media (max-width: 991px) {
-    .menu-columns {
-        flex-direction: column;
-    }
-}
-
-/* ===== KONTAKT SIDE ===== */
-body {
-    background-color: #331200;
-    color: #f7d9b0;
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-}
-
-/* Kontakt boks */
-.contact-container {
-    max-width: 700px;
-    padding: 40px 20px;
-    background: linear-gradient(180deg, rgba(37,14,0,0.8) 0%, rgba(93,37,0,0.8) 100%);
-    border: 8px solid #3d1801;
-    border-radius: 15px;
-    margin: 150px auto 60px; /* centreret under navbar */
-    text-align: center;
-}
-
-.contact-container h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    text-shadow: 0px 4px 4px #3a2154;
-}
-
-.contact-container p {
-    font-size: 25px;
-    line-height: 1.6;
-    margin: 10px 0;
-}
-
-.contact-container .highlight {
-    font-weight: 700;
-    color: #e1c5a2;
-}
-
-/* ===== MODAL ===== */
-.modal-content,
-.modal-content h2,
-.modal-text {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif !important;
-}
-
-.modal-content h2 {
-    font-weight: 900;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: rgb(53, 20, 0);
-    text-align: center;
-}
-
-.modal-text {
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: center;
-    color: rgb(76, 48, 18);
-}
-
-/* ===== NAVBAR ===== */
-.navbar a {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    color: #f7d9b0;
-}
-
-/* ===== BURGER MENU ===== */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.navbar .logo {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 1.5rem;
-    color: #f7d9b0;
-    text-decoration: none;
-}
-
-/* Burger icon */
-.burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.burger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #f7d9b0;
-    border-radius: 2px;
-}
-
-/* Nav links */
-.nav-links {
-    display: flex;
-    gap: 40px;
-}
-
-.nav-links a {
-    font-family: 'Cinzel Decorative', Helvetica, sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    color: #f7d9b0;
-    text-decoration: none;
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .burger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background-color: rgba(24,10,0,0.95);
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
-
+/* =====================================================
+   DAGENS PLAN – TIMELINE
+===================================================== */
 .day-plan {
-    background-color: #331200;
-    color: #f7d9b0;
-    min-height: 100vh;
-    padding: 120px 20px 80px;
+    padding: 140px 20px 80px;
 }
 
-/* Overskrift */
 .day-title {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 20px;
-    letter-spacing: 2px;
 }
 
-/* Ornament / linje */
 .ornament {
     width: 300px;
     height: 2px;
@@ -500,7 +294,6 @@ body {
     opacity: 0.7;
 }
 
-/* Timeline container */
 .timeline {
     max-width: 900px;
     margin: 0 auto;
@@ -509,14 +302,12 @@ body {
     gap: 60px;
 }
 
-/* Hver række */
 .timeline-item {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-/* Tids-cirkel */
 .time-circle {
     width: 120px;
     height: 120px;
@@ -530,10 +321,307 @@ body {
     flex-shrink: 0;
 }
 
-/* Tekst */
 .time-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 30px;
-        line-height: 1.7;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    line-height: 1.7;
     font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
     }
+
+    .time-circle {
+        width: 90px;
+        height: 90px;
+        font-size: 1.4rem;
+    }
+}
+
+/* =====================================================
+   MENUKORT
+===================================================== */
+
+.menu-desktop {
+    padding: 160px 20px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-columns {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+@media (min-width: 992px) {
+    .menu-columns {
+        flex-direction: row;
+        justify-content: center;
+        gap: 140px;
+    }
+}
+
+/* Sektion-overskrifter */
+.menu-desktop h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+
+    margin-bottom: 50px;
+    padding-bottom: 12px;
+
+    border-bottom: 3px solid #f7d9b0;
+}
+
+/* Selve menu-kortet */
+.menu-section {
+    background: linear-gradient(
+            180deg,
+            rgba(37,14,0,0.9),
+            rgba(93,37,0,0.9)
+    );
+    border: 10px solid #3d1801;
+    border-radius: 20px;
+
+    padding: 50px 40px;
+}
+
+
+
+/* Container */
+.menu-desktop {
+    padding: 150px 20px 80px;
+    width: 100%;
+    display: block;          /* VIGTIGT: IKKE FLEX */
+}
+
+/* MENU OVERSKRIFT */
+.menu-title {
+    width: 100%;
+    text-align: center;
+
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    margin: 0 auto 90px auto;
+}
+
+/* KOLONNER */
+.menu-columns {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 90px;
+}
+
+@media (min-width: 992px) {
+    .menu-columns {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 140px;
+    }
+}
+
+/* SEKTIONER */
+.menu-section {
+    text-align: center;
+}
+
+/* SEKTION OVERSKRIFTER */
+.menu-desktop h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+
+    margin-bottom: 45px;
+    padding-bottom: 12px;
+
+    border-bottom: 2px solid #f7d9b0;
+}
+
+/* MENU ITEMS */
+.menu-item {
+    margin-bottom: 34px;
+}
+
+/* NAVN */
+.menu-item .name {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+/* BESKRIVELSE */
+.menu-item .description {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #f7d9b0;
+    margin-bottom: 4px;
+}
+
+/* PRIS */
+.menu-item .price {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* SIKKERHED: FJERN ALT DER LIGNER BOKSE */
+.menu-desktop,
+.menu-columns,
+.menu-section,
+.menu-item {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+
+
+
+/* =====================================================
+   KONTAKT SIDE
+===================================================== */
+.contact-container {
+    max-width: 700px;
+    margin: 160px auto 60px;
+    padding: 50px 30px;
+    background: linear-gradient(
+            180deg,
+            rgba(37,14,0,0.85),
+            rgba(93,37,0,0.85)
+    );
+    border: 8px solid #3d1801;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.contact-container h1 {
+    font-size: 3.8rem;
+    margin-bottom: 30px;
+}
+
+.contact-container p:first-of-type {
+    font-size: 28px;
+    margin-bottom: 45px;
+}
+
+.contact-container p {
+    font-size: 30px;
+    margin: 12px 0;
+}
+
+.contact-container .highlight {
+    font-weight: 900;
+    color: #f2c58b;
+}
+
+/* =====================================================
+   MODAL – TILMELD (SOM FØR)
+===================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 2000;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 420px;
+    margin: 10% auto;
+    padding: 35px 30px;
+
+    background-color: rgba(255,255,255,0.95);
+    border-radius: 15px;
+
+    text-align: center;
+    color: #331200;
+
+    font-family: 'Cinzel Decorative', serif;
+}
+
+/* Luk-knap */
+.modal-content .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Overskrift */
+.modal-content h2 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+}
+
+/* Brødtekst */
+.modal-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+/* Inputs */
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* MODAL-KNAP (IKKE CTA) */
+.modal-content button {
+    margin-top: 10px;
+    padding: 12px 26px;
+
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    background: linear-gradient(
+            0deg,
+            rgba(146,94,41,0.85) 2%,
+            rgba(53,20,0,0.85) 93%
+    );
+
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Hover */
+.modal-content button:hover {
+    opacity: 0.9;
+}
+
