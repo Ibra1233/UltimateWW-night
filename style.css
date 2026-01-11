@@ -1,13 +1,13 @@
 /* =====================================================
    RESET & BASIS (UÆNDRET)
 ===================================================== */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"); /* Fjerner browserens standardstyling, så den starter ens i alle browsere */
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /*gør det nemmere at styre størrelsen på elementer. Eks. width 200px + padding 20px + 20px = 240. Med border-box: stadig 200 px i alt*/
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased; /* Teksten blødgøres */
 }
 
 html, body {
@@ -20,13 +20,13 @@ html, body {
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; /* Ingen understregninger */
+    color: inherit; /* Gør at tekstfarven arver farven fra omkringliggende tekstindhold */
 }
 
 button:focus-visible {
     outline: 2px solid #4a90e2;
-}
+} /*CTA er <div> og ikke <button> derfor får den ikke outline /*
 
 /* =====================================================
    CONTAINER MED BAGGRUND
@@ -34,14 +34,14 @@ button:focus-visible {
 .container-med-baggrund {
     min-height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: flex;              /* Aktiverer flexbox til layout */
+    flex-direction: column;     /* Indhold placeres lodret */
     align-items: center;
-    padding: 140px 20px 40px;
+    padding: 140px 20px 40px;   /* Indre afstand (top, sider, bund) */
     background-image: url('img/werewolf-1.png');
-    background-size: cover;
-    background-position: center 65%;
-    background-repeat: no-repeat;
+    background-size: cover;     /* Billedet dækker hele containeren */
+    background-position: center 65%; /* Justerer billedets fokuspunkt. Rykket lidt ned 65% */
+    background-repeat: no-repeat; /* Forhindrer gentagelse af billedet */
 }
 
 /* ==============================
@@ -49,11 +49,11 @@ button:focus-visible {
 ============================== */
 
 .navbar {
-    position: fixed;
+    position: fixed; /* Elementet bliver fast placeret ift. browservinduet. Flytter sig ikke */
     top: 0;
     width: 100%;
     background-color: rgba(24,10,0,0.85);
-    z-index: 1000;
+    z-index: 1000; /* Betyder hvad der ligger forrest og bagerst. Højere tal --> ligger forrest */
 
     padding: 10px 0;              /* lavere top/bund */
 }
@@ -64,7 +64,7 @@ button:focus-visible {
     margin: 0 auto;
     padding: 0 40px;
 
-    display: flex;
+    display: flex; /* Elementerne inde i containeren bliver fleksible */
     align-items: center;
 }
 
@@ -73,7 +73,7 @@ button:focus-visible {
     font-size: 1.4rem;            /* mindre logo */
     font-weight: 900;
     letter-spacing: 1.5px;
-    white-space: nowrap;
+    white-space: nowrap; /* Tekst bryder ikke linje, alt i en linje */
 
     text-decoration: none;
     flex-shrink: 0;               /* må IKKE presse menu */
@@ -134,14 +134,14 @@ button:focus-visible {
 
     /* Logo HELT venstre */
     .logo {
-        font-size: 1.2rem;
-        margin-right: auto;
+        font-size: 1.2rem; /* Mindre tekststørrelse på logoet på mobil */
+        margin-right: auto; /* Skubber logoet helt til venstre */
     }
 
     /* Burger HELT højre */
     .burger {
-        display: flex;
-        margin-left: auto;
+        display: flex;   /* Viser burger-menuen på mobil */
+        margin-left: auto; /* Skubber burger-menuen helt til højre */
     }
 
     /* Dropdown */
@@ -331,7 +331,7 @@ button:focus-visible {
 @media (max-width: 768px) {
     .timeline-item {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* Starter fra kanten */
         gap: 16px;
     }
 
